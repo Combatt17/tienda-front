@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container p-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+            <form  [formGroup]="formularioSesion" (ngSubmit)="iniciarSesion()">
+                <fieldset>
+                  <legend>Inicio de sesion</legend>
+                 
+                  <div class="form-group">
+                    <label for="Email" class="form-label mt-4">Email <span class="text-danger">*</span></label>
+                    <input type="email"
+                            class="form-control"
+                            id="Email"
+                            placeholder="example@mail.com"
+                            formControlName="email"
+                            >
+                            <div class="text-danger" *ngIf="campoNoValido('email')">El campo apellido es requerido</div>
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="Contrase&ntilde;a" class="form-label mt-4">Contrase&ntilde;a <span class="text-danger">*</span></label>
+                    <input type="password"
+                            class="form-control"
+                            id="Contrase&ntilde;a"
+                            placeholder="Contrase&ntilde;a"
+                            formControlName="password"
+                      >
+                      <div class="text-danger" *ngIf="campoNoValido('password')">El campo contrase&ntilde;a es requerido</div>
+                  </div>
+                 
+                  <div class="form-group mt-3">
+                      <button type="submit" class="btn btn-primary">Acceder</button>
+                  </div>
+                  
+                </fieldset>
+              </form>
+        </div>
+
+    </div>
+</div>

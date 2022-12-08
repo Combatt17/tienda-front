@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Tienda virtual</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['']" routerLinkActive="active" >Inicio
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/carrito']" routerLinkActive="active" >Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/pedidos']" routerLinkActive="active" >Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/categorias']" routerLinkActive="active" >Categorias</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-md-auto">
+            <li class="nav-item">
+              <a  class="nav-link" [routerLink]="['/iniciar-sesion']" routerLinkActive="active" > Iniciar Sesion</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" [routerLink]="['/registro']" routerLinkActive="active"  href="">Registro</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>

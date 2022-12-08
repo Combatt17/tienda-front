@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <app-header titulo="Listado de categorias"></app-header>
+    <button (click)="redireccionarVistaAgregar()" class="btn btn-primary">Agregar</button>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Acciones</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Subcategoria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active" *ngFor=" let categoria of categorias">
+            <th>
+                <button class="btn btn-warning">Editar</button>
+                 <button (click)="eliminarCategoria(categoria.id)" class="btn btn-danger">Eliminar</button> 
+            </th>
+            <th scope="row">{{categoria.id}}</th>
+            <td>{{categoria.nombre}}</td>
+            <td>{{categoria.estado}}</td>
+            
+            <td><span *ngFor="let subcate of categoria.subCategoria">
+              {{subcate.nombre}},  
+            </span> </td>
+          </tr>
+   
+        </tbody>
+      </table>
+</div>

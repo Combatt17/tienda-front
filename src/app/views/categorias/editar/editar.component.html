@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <app-header titulo="Editar categoria"></app-header>
+    <!-- <button (click)="redireccionarVistaAgregar()" class="btn btn-primary">Agregar</button> -->
+   <div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="formularioCategoria" (ngSubmit)="actualizarCategoria()" >
+            <div class="mb-3">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" >
+            </div>
+            <div class="mb-3">
+                <label for="">Subcategoria</label>
+                <select name="" id="" class="form-control" formControlName="subcategoria">
+                    <option value="" selected> Seleccione una categoria</option>
+                    <option [value]="categoria.id" *ngFor="let categoria of categorias"> {{categoria.nombre}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Agregar</button>
+            </div>
+        </form>
+    </div>
+   </div>
+</div>
