@@ -19,6 +19,8 @@ export class CategoriasComponent implements OnInit {
 
   listar(){
     this.categoriaService.listarCategorias().subscribe((respuesta:any)=>{
+      console.log(respuesta);
+      
       this.categorias = respuesta;
       console.log(this.categorias);
       
@@ -30,10 +32,14 @@ export class CategoriasComponent implements OnInit {
   }
 
   eliminarCategoria(id:any){
-    console.log(id);
+   
     this.categoriaService.eliminarCategoria(id).subscribe(respuesta=>{
       console.log(respuesta);
       this.listar();
     })
+  }
+ editarCategoria(id:any){
+   
+    this.router.navigateByUrl('/categorias/editar/'+id);
   }
 }

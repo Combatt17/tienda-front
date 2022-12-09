@@ -12,7 +12,7 @@ export class CategoriaService {
   constructor(private http:HttpClient) { }
 
   listarCategorias(){
-    return this.http.get("http://localhost:8080/api/categorias/listado");
+    return this.http.get(url+"/categorias/listado");
   }
 
   obtenerCategoriaPorId(id:string|null){

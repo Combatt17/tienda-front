@@ -16,6 +16,7 @@ export class AgregarComponent implements OnInit {
     nombre:['',Validators.required],
     subcategoria:['']
   })
+  subcategorias:Categoria []=[];
   constructor(private fb:FormBuilder,private categoriaService:CategoriaService,private router:Router) { }
 
   ngOnInit(): void {
@@ -25,10 +26,19 @@ export class AgregarComponent implements OnInit {
   listar(){
     this.categoriaService.listarCategorias().subscribe((respuesta:any)=>{
       this.categorias = respuesta;
-      console.log(this.categorias);
-      
-      
+    
     })
+  }
+  selectCategorias(event:any){
+    const {target:{checked,value}}= event;
+    if(checked){
+      this.subcategorias.push({id:value, nombre: "",estado: Estado.ACTIVO})
+    }else{
+      const index = this.subcategorias.indexOf(value);
+      this.subcategorias.splice(index,1);
+    }
+      
+        
   }
   registrarCategoria(){
     let categoria:Categoria = this.transformaCategoria(this.formularioCategoria.value)
@@ -45,8 +55,10 @@ export class AgregarComponent implements OnInit {
   }
 
   transformaCategoria(data:any){
-    let subcategoria = new Categoria(undefined,undefined,data.subcategoria);
-    return new Categoria(data.nombre,Estado.ACTIVO,undefined,[subcategoria]);
+
+      return new Categoria(data.nombre,Estado.ACTIVO,undefined,this.subcategorias);
+    
+   
   }
 
 }

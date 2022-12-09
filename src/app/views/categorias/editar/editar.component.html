@@ -11,10 +11,16 @@
             </div>
             <div class="mb-3">
                 <label for="">Subcategoria</label>
-                <select name="" id="" class="form-control" formControlName="subcategoria">
+                <!-- <select name="" id="" class="form-control" formControlName="subcategoria">
                     <option value="" selected> Seleccione una categoria</option>
                     <option [value]="categoria.id" *ngFor="let categoria of categorias"> {{categoria.nombre}}</option>
-                </select>
+                </select> -->
+                <div class="form-check"  *ngFor="let categoria of categorias">
+                    <input class="form-check-input" [checked]="marcar(categoria.id)" type="checkbox" (change)="selectCategorias($event,categoria)" [value]="categoria.id" formControlName="subcategoria" >
+                    <label class="form-check-label" >
+                        {{categoria.nombre}}
+                    </label>
+                  </div>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Agregar</button>
